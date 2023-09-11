@@ -42,3 +42,7 @@ Run `docker-compose exec app php artisan make:resource TaskResource`
 
 1. Run `docker-compose exec app php artisan make:controller`
 2. Choose type of controller
+
+## Run "inspire" Command
+
+Run `docker-compose exec app php artisan inspire`
