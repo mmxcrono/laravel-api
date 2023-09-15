@@ -1,5 +1,11 @@
 # Laravel API
 
+This project will set up a Laravel API
+
+-   Use argon2id for password hashing
+-   Use Vue with Breeze for the UI
+-   Use Sanctum for authentication
+
 ## Docker Setup
 
 1. Install Docker Desktop on Windows
@@ -7,20 +13,30 @@
 
 ## Docker Compose
 
-1. Run `docker-compose build`
-2. Run `docker-compose up -d`
-3. Run `docker-compose exec app composer install`
-4. Run `docker-compose exec app php artisan key:generate`
-5. Run `docker-compose exec app php artisan migrate`
+Run the following commands one at a time
+
+```sh
+docker-compose build
+docker-compose up -d
+docker-compose exec app rm composer.lock
+docker-compose exec app composer install
+docker-compose exec app php artisan key:generate
+docker-compose exec app php artisan migrate
+docker-compose exec app php artisan test
+```
 
 ## Launch
 
 Open a browser to http://localhost:8000
 
-
 ## Make Model
 
-1. Run `docker-compose exec app php artisan make:model`
+1. Run
+
+```sh
+docker-compose exec app php artisan make:model
+```
+
 2. Provide model name
 3. Choose file creation options
 
@@ -28,21 +44,42 @@ Open a browser to http://localhost:8000
 
 ### Migrate and run seeders
 
-Run `docker-compose exec app php artisan migrate --seed`
+Run
+
+```sh
+docker-compose exec app php artisan migrate --seed
+```
 
 ### Rollback
 
-Run `docker-compose exec app php artisan migrate:rollback`
+Run
 
-## Make Resource
+```sh
+docker-compose exec app php artisan migrate:rollback
+```
 
-Run `docker-compose exec app php artisan make:resource TaskResource`
+## Make Resource TaskResource
+
+Run
+
+```sh
+docker-compose exec app php artisan make:resource TaskResource
+```
 
 ## Make Controller
 
-1. Run `docker-compose exec app php artisan make:controller`
+1. Run
+
+```sh
+docker-compose exec app php artisan make:controller
+```
+
 2. Choose type of controller
 
 ## Run "inspire" Command
 
-Run `docker-compose exec app php artisan inspire`
+Run
+
+```sh
+docker-compose exec app php artisan inspire
+```
