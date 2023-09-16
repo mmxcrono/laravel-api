@@ -22,6 +22,12 @@ RUN apt-get clean && rm -rf /var/lib/apt/lists/*
 RUN docker-php-ext-install pdo_mysql mbstring exif pcntl bcmath gd
 RUN apt-get update && apt-get install -y nodejs npm
 
+# XDEBUG
+RUN pecl install xdebug
+RUN docker-php-ext-enable xdebug
+# This needs in order to run xdebug from VSCode
+ENV PHP_IDE_CONFIG 'serverName=DockerApp'
+
 # Get latest Composer
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
