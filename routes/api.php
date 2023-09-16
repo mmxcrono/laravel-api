@@ -24,6 +24,4 @@ Route::prefix('v1')->group(function() {
         return $request->user();
     });
 
-    Route::apiResource('/tasks', TaskController::class);
-    Route::patch('/tasks/{task}/complete', CompleteTaskController::class);
 });
