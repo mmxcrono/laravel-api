@@ -6,6 +6,15 @@ This project will set up a Laravel API
 -   Use Vue with Breeze for the UI
 -   Use Sanctum for authentication
 
+## Environment
+
+See `.env.example` and copy to .env, replacing as needed.
+
+## Node Setup
+
+1. Run `npm ci && npm run build`
+2. Run `npm run dev`
+
 ## Docker Setup
 
 1. Install Docker Desktop on Windows
@@ -18,11 +27,10 @@ Run the following commands one at a time
 ```sh
 docker-compose build
 docker-compose up -d
-docker-compose exec app rm composer.lock
-docker-compose exec app composer install
-docker-compose exec app php artisan key:generate
-docker-compose exec app php artisan migrate
-docker-compose exec app php artisan test
+docker exec app composer install
+docker exec app php artisan key:generate
+docker exec app php artisan migrate
+docker exec app php artisan test
 ```
 
 ## Launch
